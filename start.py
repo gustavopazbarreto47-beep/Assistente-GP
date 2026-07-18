@@ -1,4 +1,4 @@
-#gugu
+
 agendas = []
 notas = []
 tarefas = []
