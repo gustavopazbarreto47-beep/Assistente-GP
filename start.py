@@ -4,7 +4,6 @@ notas = []
 tarefas = []
 
 while True:
-    
     print("""
     =========================
           ASSISTENTE GP
