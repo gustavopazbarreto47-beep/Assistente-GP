@@ -1,4 +1,3 @@
-#hghh
 agendas = []
 notas = []
 tarefas = []
