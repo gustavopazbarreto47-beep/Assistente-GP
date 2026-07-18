@@ -1,4 +1,4 @@
-print("Teste")
+
 agendas = []
 notas = []
 tarefas = []
