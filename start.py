@@ -1,4 +1,4 @@
-
+print("Teste sendo realizado")
 
 agendas = []
 notas = []
