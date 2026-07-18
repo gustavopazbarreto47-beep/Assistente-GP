@@ -1,4 +1,4 @@
-
+print("teste")
 agendas = []
 notas = []
 tarefas = []
