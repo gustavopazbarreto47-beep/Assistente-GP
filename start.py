@@ -121,7 +121,7 @@ while True:
             print("Em Breve")
         elif escolha_tarefa == 4:
             if len(tarefas) == 0:
-                print("Não há Nota para Agendas! Para continuar pressione <ENTER>")
+                input("Não há Nota para Agendas! Para continuar pressione <ENTER>")
             else:
                 for i, tarefa in enumerate(tarefas):
                     print(f"{i + 1}. {tarefa}")
