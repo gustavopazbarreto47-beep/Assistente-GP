@@ -1,3 +1,4 @@
+print("João vitor e feio!")
 # listas
 notas = []
 agendas = []
