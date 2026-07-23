@@ -4,6 +4,10 @@ notas = []
 agendas = []
 tarefas = []
 # entrar no menu 
+
+RED = "\033[31m"
+RESET = "\033[m"
+
 while True:
     print("""
     ====================
@@ -19,10 +23,13 @@ while True:
     4 - Sair
     """)
     # Escolher uma das opçoes 
-
-    escolha_menu = int(input("Escolha: ").strip())
-
+    try:
+        escolha_menu = int(input("Escolha: ").strip())
+    except ValueError:
+        input(f"{RED}Digite Apenas Numeros! {RESET}Pressione <ENTER> Para continuar")
+        continue
     # bloco de notas 
+
     if escolha_menu == 1:
         print("""
     1 - Nova Nota
@@ -34,8 +41,11 @@ while True:
     4 - Excluir
 
     """)
-
-        escolha_notas = int(input("Escolha: ").strip())
+        try:
+            escolha_notas = int(input("Escolha: ").strip())
+        except ValueError:
+            input(f"{RED}Digite Apenas Numeros! {RESET}Pressione <ENTER> Para continuar")
+            continue
 
         if escolha_notas == 1:
             nova_nota = input("Digite: ").strip() 
@@ -51,12 +61,18 @@ while True:
             print("Em Breve")
         elif escolha_notas == 4:
             if len(notas) == 0:
-                input("Não há Nota para Excluir! Para continuar pressione <ENTER>")
+                input("Não há Nota para Excluir! Pressione <ENTER> Para continuar")
             else:
                 for i, nota in enumerate(notas):
                     print(f"{i + 1}. {nota}")
-                excluir_nota = int(input("Qual Nota Voçê Que Excluir? ").strip())
-                print(f"'{notas.pop(excluir_nota - 1)}' Excluido(a) com sucesso!")
+                try:      
+                    excluir_nota = int(input("Qual Nota Voçê Que Excluir? ").strip())
+                    print(f"'{notas.pop(excluir_nota - 1)}' Excluido(a) com sucesso!")
+                except ValueError:
+                    input(f"{RED}Opção Invalida{RESET}, Pressione <ENTER> Para continuar")
+                except IndexError:
+                    input(f"{RED}Opção Invalida{RESET}, Pressione <ENTER> Para continuar")
+ 
     # agenda 
     elif escolha_menu == 2:
         print("""
@@ -69,7 +85,11 @@ while True:
     4 - Excluir
               
     """)
-        escolha_agenda = int(input("Escolha: ").strip())
+        try:
+            escolha_agenda = int(input("Escolha: ").strip())
+        except ValueError:
+            input(f"{RED}Digite Apenas Numeros! {RESET}Pressione <ENTER> Para continuar")
+            continue
 
         if escolha_agenda == 1:
             data = input("Data: ")
@@ -89,9 +109,10 @@ while True:
         elif escolha_agenda == 4:
             if len(agendas) == 0:
                 input("Não há Nota para Agendas! Para continuar pressione <ENTER>")
-            else:   
+            else: 
                 for i, agenda in enumerate(agendas):
-                     print(f"{i + 1}. {data} | {horario} | {descricao}")
+                    data, horario, descricao = agenda
+                    print(f"{i + 1}. {data} | {horario} | {descricao}")  
                 excluir_agenda = int(input("Qual Agenda Voçê Que Excluir? ").strip())
                 print(f"{agendas.pop(excluir_agenda - 1)} Excluido(a) com sucesso!")
     # tarefas
@@ -106,7 +127,11 @@ while True:
     4 - Excluir
               
     """)
-        escolha_tarefa = int(input("Escolha: ").strip())
+        try:
+            escolha_tarefa = int(input("Escolha: ").strip())
+        except ValueError:
+            input(f"{RED}Digite Apenas Numeros! {RESET}Pressione <ENTER> Para continuar")
+            continue
 
         if escolha_tarefa == 1:
             nova_tarefa = input("Digite: ").strip()
@@ -134,4 +159,4 @@ while True:
         break
         # conectar ao banco de dados
     else:
-       input("Opção Invalida, Escolha entre 1 a 4 presione <ENTER>")
+       input(f"{RED}Opção Invalida{RESET}, Escolha entre 1 a 4 presione <ENTER>")
