@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistente GP</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
 </head>
 
 <body>
@@ -18,10 +19,11 @@
         </header>
         <nav>
             <ul>
-                <li><a href="#visao_geral" class="ativo">Visão Geral</a></li>
+                <li><a href="#visao_geral">Visão Geral</a></li>
                 <li><a href="#bloco_notas">Bloco de notas</a></li>
                 <li><a href="#tarefas">Tarefas</a></li>
                 <li><a href="#agenda">Agenda</a></li>
+
             </ul>
         </nav>
         <footer>
@@ -31,50 +33,259 @@
             </div>
         </footer>
     </aside>
+    <section id="visao_geral" class="visao_geral ativa">
 
-    <section id="visao_geral" class="visao_geral">
-        <div class="container_central">
-            <header class="tvisao_geral">
-                <div class="titulo_visao_geral">
-                    <h1>Visão Geral</h1>
-                    <p>Resumo das suas atividades e compromissos.</p>
-                </div>
-                <div class="data_visao_geral">
-                    <button type="button">Criar</button>
-                </div>
-            </header>
-            
-            <div class="boas_vindas">
-                <h2>Bem-vindo ao Assistente GP!</h2>
-                <p>Organize seu dia e acompanhe suas atividades.</p>
+        <header class="tvisao_geral">
+            <div class="titulo_visao_geral">
+                <h1>Visão Geral</h1>
+                <p>Resumo das suas atividades e compromissos.</p>
             </div>
-            
-            <div class="resumo_atividades">
-                <div class="tarefas_concluidas">
-                    <h2>Tarefas Concluídas</h2>
-                    <p>0/0</p>
-                </div>
-                <div class="notas_registradas">
-                    <h2>Notas Registradas</h2>
-                    <p>0</p>
-                </div>
-                <div class="eventos_mes">
-                    <h2>Eventos este Mês</h2>
-                    <p>0</p>
-                </div>
-                <div class="proximas_tarefas">
-                    <h2>Próximas Tarefas</h2>
-                    <p>Nenhuma tarefa pendente.</p>
-                    <a href="#tarefas">Ver Tarefas</a>
-                </div>
-                <div class="eventos_hoje">
-                    <h2>Eventos de Hoje</h2>
-                    <p>Nenhum evento agendado para hoje.</p>
-                    <a href="#agenda">Ir para Agenda</a>
-                </div>
+            <div class="data_visao_geral">
+                <p>Data:</p>
+            </div>
+        </header>
+        <div class="boas_vindas">
+            <h2>Bem-vindo ao Assistente GP!</h2>
+            <p>Organize seu dia e acompanhe suas atividades.</p>
+        </div>
+        <div class="resumo_atividades">
+            <div class="tarefas_concluidas">
+                <h2>Tarefas Concluidas</h2>
+                <p>0/0</p>
+            </div>
+            <div class="eventos_mes">
+                <h2>Eventos este Mês</h2>
+                <p>0</p>
+            </div>
+            <div class="proximas_tarefas">
+                <h2>Proximas Tarefas</h2>
+                <p>Nenhuma tarefa pendente.</p>
+                <a href="#tarefas">Ver Tarefas</a>
+            </div>
+            <div class="eventos_hoje">
+                <h2>Eventos de Hoje</h2>
+                <p>Nenhum evento agendado para hoje.</p>
+                <a href="#agenda">Ir para Agenda</a>
             </div>
         </div>
+
     </section>
 
+
+    <section id="bloco_notas" class="bloco_notas">
+
+        <header class="tbloco_notas">
+            <div class="titulo_bloco_notas">
+                <h1>Bloco de Notas</h1>
+                <p>Guarde suas ideias, rascunhos e lembretes</p>
+            </div>
+
+            <button type="button">+ Nova Anotação</button>
+
+        </header>
+        <div>
+            <div class="barra_pesquisa_bloco_notas">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="pesquisabn" type="search" placeholder="Buscar notas pelo titulo ou conteudo...">
+
+            </div>
+            <ul>
+
+            </ul>
+        </div>
+
+    </section>
+    <section id="tarefas" class="tarefas">
+
+        <header class="ttarefas">
+            <div class="titulo_tarefas">
+                <h1>Lista de Tarefas</h1>
+                <p>Gerencie suas obrigações e prioridades.</p>
+            </div>
+
+        </header>
+        <div class="add_tarefas">
+            <form method="post">
+                <input id="add_tarefas_input" type="text" placeholder="Adicione uma nova tarefa.">
+                <select>
+                    <option value="baixa">Prioridade Baixa</option>
+                    <option value="media">Prioridade Media</option>
+                    <option value="alta">Prioridade Alta</option>
+                </select>
+                <button type="submit">+ Adcionar</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section id="agenda" class="agenda">
+
+        <header class="tagenda">
+            <div>
+                <h1>Agenda e Calendário</h1>
+                <p>Organize seus compromissos no tempo</p>
+            </div>
+
+            <div class="acoes_agenda">
+                <p id="data_atual">Data: 10 de outubro de 2026</p>
+                <button type="button" id="btn_criar_evento">
+                    + Criar
+                </button>
+            </div>
+        </header>
+
+        <div class="conteudo_agenda">
+
+            <!-- Calendário mensal -->
+            <section class="calendario">
+
+                <header class="cabecalho_calendario">
+                    <h2 id="mes_ano">Outubro 2026</h2>
+
+                    <div class="navegacao_calendario">
+                        <button type="button" id="mes_anterior" aria-label="Mês anterior">
+                            &#10094;
+                        </button>
+
+                        <button type="button" id="mes_seguinte" aria-label="Próximo mês">
+                            &#10095;
+                        </button>
+                    </div>
+                </header>
+
+                <button type="button" id="btn_hoje">Hoje</button>
+
+                <div class="grade_calendario">
+
+                    <div class="dia_semana">Dom</div>
+                    <div class="dia_semana">Seg</div>
+                    <div class="dia_semana">Ter</div>
+                    <div class="dia_semana">Qua</div>
+                    <div class="dia_semana">Qui</div>
+                    <div class="dia_semana">Sex</div>
+                    <div class="dia_semana">Sáb</div>
+
+                    <!-- Espaços antes do primeiro dia -->
+                    <div class="dia vazio"></div>
+                    <div class="dia vazio"></div>
+                    <div class="dia vazio"></div>
+                    <div class="dia vazio"></div>
+
+                    <!-- Dias do mês -->
+                    <button class="dia" type="button">1</button>
+                    <button class="dia" type="button">2</button>
+                    <button class="dia" type="button">3</button>
+                    <button class="dia" type="button">4</button>
+                    <button class="dia" type="button">5</button>
+                    <button class="dia" type="button">6</button>
+                    <button class="dia" type="button">7</button>
+                    <button class="dia" type="button">8</button>
+                    <button class="dia" type="button">9</button>
+                    <button class="dia selecionado" type="button">10</button>
+                    <button class="dia" type="button">11</button>
+                    <button class="dia" type="button">12</button>
+                    <button class="dia" type="button">13</button>
+                    <button class="dia" type="button">14</button>
+                    <button class="dia" type="button">15</button>
+                    <button class="dia" type="button">16</button>
+                    <button class="dia" type="button">17</button>
+                    <button class="dia" type="button">18</button>
+                    <button class="dia" type="button">19</button>
+                    <button class="dia" type="button">20</button>
+                    <button class="dia" type="button">21</button>
+                    <button class="dia" type="button">22</button>
+                    <button class="dia" type="button">23</button>
+                    <button class="dia" type="button">24</button>
+                    <button class="dia" type="button">25</button>
+                    <button class="dia" type="button">26</button>
+                    <button class="dia" type="button">27</button>
+                    <button class="dia" type="button">28</button>
+                    <button class="dia" type="button">29</button>
+                    <button class="dia" type="button">30</button>
+                    <button class="dia" type="button">31</button>
+
+                </div>
+
+            </section>
+
+            <!-- Eventos da data selecionada -->
+            <div class="eventos_dia">
+
+                <header class="cabecalho_eventos">
+                    <div>
+                        <h2>Compromissos Agendados</h2>
+                        <p id="data_eventos">Data: 2026-10-10</p>
+                    </div>
+
+                    <button type="button" id="btn_adicionar_evento" aria-label="Adicionar evento">
+                        + Adicionar
+                    </button>
+                </header>
+
+                <ul id="lista_eventos">
+
+                    <li class="evento">
+                        <div>
+                            <h3>Reunião de Alinhamento</h3>
+                            <p>Reunião</p>
+                        </div>
+
+                        <time datetime="14:30">14:30</time>
+                    </li>
+
+                </ul>
+
+                <p id="mensagem_sem_eventos" hidden>
+                    Nenhum evento agendado para este dia.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+    <script>
+
+        const links = document.querySelectorAll('a[href^="#"]');
+        const paginas = document.querySelectorAll('body > section');
+
+        function mostrarPagina(id) {
+            const paginaExiste = [...paginas].some(
+                pagina => pagina.id === id
+            );
+
+            if (!paginaExiste) return;
+
+            paginas.forEach(pagina => {
+                pagina.classList.toggle("ativa", pagina.id === id);
+            });
+
+            links.forEach(link => {
+                link.classList.toggle(
+                    "ativo",
+                    link.getAttribute("href") === `#${id}`
+                );
+            });
+
+            history.replaceState(null, "", `#${id}`);
+        }
+
+        links.forEach(link => {
+            link.addEventListener("click", evento => {
+                const id = link.getAttribute("href").slice(1);
+
+                if ([...paginas].some(pagina => pagina.id === id)) {
+                    evento.preventDefault();
+                    mostrarPagina(id);
+                }
+            });
+        });
+
+        const paginaInicial = location.hash.slice(1) || "visao_geral";
+        mostrarPagina(paginaInicial);
+
+    </script>
 </body>
+
+
 </html>
